@@ -8,3 +8,5 @@ How to run the app
 3. Run 'npm i'
 
 4. Run 'npm start', then open http://localhost:3000 in the browser and you will see my app is running.
+
+5. Run 'npm test' if you are going to test the functionality of my code.
