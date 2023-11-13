@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import MainPage from './components/MainPage';
+import CoinDetails from './components/CoinDetails';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material/styles';
 
 function App() {
+  let customTheme = createTheme({
+    breakpoints: {
+      values: {
+        xs: 360,
+        sm: 600,
+        md: 900,
+        lg: 1200,
+        xl: 1536,
+      },
+    },
+  });
+
+  customTheme = responsiveFontSizes(customTheme);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={customTheme}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainPage />}></Route>
+          <Route path="/coins/:id" element={<CoinDetails />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

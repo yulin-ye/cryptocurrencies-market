@@ -1,0 +1,16 @@
+.coin-header {
+  margin: 1px;
+
+  &__item {
+    display: flex;
+  }
+}
+
+.coin-details {
+  margin: 1rem;
+  width: 50%;
+}
+
+.grey-colour {
+  color: lightslategray
+}
